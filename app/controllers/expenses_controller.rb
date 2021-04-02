@@ -16,8 +16,9 @@ class ExpensesController < ApplicationController
 			)
 		if @expense.save
 			flash[:notice] = 'Expense added!'
-			redirect_to '/expenses/index'
+			redirect_to '/expenses'
 		else
+			@categories = Category.all #このコードの居場所どうにかしたい…
 			render 'expenses/new'
 		end
 	end
@@ -32,19 +33,20 @@ class ExpensesController < ApplicationController
 		if @expense.update(
 			amount: params[:amount],
 			category_id: params[:category_id]
-		)
-			flash[:notice] = 'Expense edited.'
-			redirect_to '/expenses/index'
+			)
+			flash[:notice] = 'Expense edited!'
+			redirect_to '/expenses'
 		else
-			render 'expense/edit'
+			@categories = Category.all #このコードの居場所どうにかしたい…			
+			render 'expenses/edit'
 		end
 	end
 
 	def destroy
 		@expense = Expense.find_by id: params[:id]
 		@expense.destroy
-		flash[:notice] = 'An expense was deleted.'
-		redirect_to '/expenses/index'
+		flash[:notice] = 'Expense was deleted.'
+		redirect_to '/expenses'
 	end
 
 

@@ -7,7 +7,7 @@
 			<% end %>
 		</div>
 
-		<%= form_tag "/expenses/#{@expense.id}/update" do %>
+		<%= form_tag "/expenses/#{@expense.id}", method: :patch do %>
 			<label for="amount"></label>
 			<input type="number" name="amount" id="amout" value="<%= @expense.amount %>">
 			<label for="category_id"></label>
@@ -27,7 +27,7 @@
 			<input type="submit" value="Edit">
 
 			<button>
-				<%= link_to 'Delete', "/expenses/#{@expense.id}/destroy/", method: :delete, data: {confirm: 'Are you sure?'} %>
+				<%= link_to 'Delete', "/expenses/#{@expense.id}", method: :delete, data: {confirm: 'Are you sure?'} %>
 			</button>
 		<% end %>
 	</div>
