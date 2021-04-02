@@ -11,6 +11,10 @@
   </head>
 
   <body>
+		<header>
+			<%= link_to 'List of Expenses', '/expenses/index' %>
+			<%= link_to 'New', '/expenses/new' %>
+		</header>
     <%= yield %>
   </body>
 </html>

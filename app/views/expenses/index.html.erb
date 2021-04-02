@@ -1,0 +1,9 @@
+<main>
+	<div class="container">
+		<ul class="expenses-index">
+			<% @expenses.each do |expense| %>
+				<li><%= "#{expense.amount} | #{expense.created_at.strftime('%F')}" %></li>
+			<% end %>
+		</ul>
+	</div>
+</main>
