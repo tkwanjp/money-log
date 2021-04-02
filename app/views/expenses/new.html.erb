@@ -1,9 +1,25 @@
 <main>
 	<div class="container">
-		<%= form_tag '/expenses/create/' do %>
-		<label for="amount"></label>
-		<input type="number" name="amount" id="amout">
-		<input type="submit" value="Submit">
+		<div class="form-error">
+			<% @expense.errors.full_messages.each do |message| %>
+				<p><%= message %></p>
+			<% end %>
+		</div>
+
+		<%= form_tag '/expenses/create' do %>
+			<label for="amount"></label>
+			<input type="number" name="amount" id="amout">
+
+			<label for="category_id"></label>
+			<select name="category_id" id="category_id">
+				<% @categories.each do |category| %>
+					<option value="<%= category.id %>">
+						<%= category.name %>
+					</option>
+				<% end %>
+			</select>
+
+			<input type="submit" value="Add">
 		<% end %>
 	</div>
 </main>

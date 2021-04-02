@@ -2,7 +2,10 @@
 	<div class="container">
 		<ul class="expenses-index">
 			<% @expenses.each do |expense| %>
-				<li><%= "#{expense.amount} | #{expense.created_at.strftime('%F')}" %></li>
+				<li><%= link_to "#{expense.amount} |
+										#{expense.category.name} |
+										#{expense.created_at.strftime('%F')}",
+										"/expenses/#{expense.id}/edit" %></li>
 			<% end %>
 		</ul>
 	</div>

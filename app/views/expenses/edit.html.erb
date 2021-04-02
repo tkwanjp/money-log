@@ -1,0 +1,34 @@
+<main>
+	<div class="container">
+
+		<div class="form-error">
+			<% @expense.errors.full_messages.each do |message| %>
+				<p><%= message %></p>
+			<% end %>
+		</div>
+
+		<%= form_tag "/expenses/#{@expense.id}/update" do %>
+			<label for="amount"></label>
+			<input type="number" name="amount" id="amout" value="<%= @expense.amount %>">
+			<label for="category_id"></label>
+			<select name="category_id" id="category_id">
+				<% @categories.each do |category| %>
+					<% if category.id == @expense.category_id %>
+						<option value="<%= category.id %>" selected>
+							<%= category.name %>
+						</option>
+					<% else %>
+						<option value="<%= category.id %>">
+							<%= category.name %>
+						</option>
+					<% end %>
+				<% end %>
+			</select>
+			<input type="submit" value="Edit">
+
+			<button>
+				<%= link_to 'Delete', "/expenses/#{@expense.id}/destroy/", method: :delete, data: {confirm: 'Are you sure?'} %>
+			</button>
+		<% end %>
+	</div>
+</main>
