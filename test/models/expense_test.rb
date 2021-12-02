@@ -1,7 +1,21 @@
 require "test_helper"
 
 class ExpenseTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
+  def setup
+    @expense = Expense.new(amount: 100, category_id: 1)
+  end
+  
+  test "should be valid" do
+    assert @expense.valid?
+  end
+  
+  test "amount shoud be present" do
+    @expense.amount = nil
+    assert_not @expense.valid?
+  end
+  
+  # @expense.category => returns nil. Need test data
+  # test "category should be found" do
+  #   assert @expense.category
   # end
 end
