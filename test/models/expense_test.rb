@@ -14,8 +14,7 @@ class ExpenseTest < ActiveSupport::TestCase
     assert_not @expense.valid?
   end
   
-  # @expense.category => returns nil. Need test data
   # test "category should be found" do
-  #   assert @expense.category
+  #   assert @expense.category # returns nil. Needs test data
   # end
 end
