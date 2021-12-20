@@ -12,9 +12,16 @@
 
   <body>
 		<header>
-			<%= link_to 'List of Expenses', '/expenses' %>
-			<%= link_to 'New', '/expenses/new' %>
-		</header>
+		  <ul>
+  		  <li><%= link_to 'Money Log', '/', class: "title" %></li>
+  		  <li>
+  		    <%= link_to 'Expenses', '/expenses' %>
+  		  </li>
+  		  <li>
+  		    <%= link_to 'New', '/expenses/new' %>
+  		  </li>
+		  </ul>
+		  		</header>
 
 		<% if flash[:notice] %>
 			<div class="flash"><%= flash[:notice] %></div>
