@@ -47,8 +47,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	font-size: large;
 }
+header {
+	font-size: 18px;
+}	
 ol, ul {
 	list-style: none;
 }
